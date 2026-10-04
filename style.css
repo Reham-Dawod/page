@@ -1,0 +1,141 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #0d0d0d;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+
+.container {
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Marco Dorado con Resplandor Arcoíris animado */
+.logo-wrapper {
+    position: relative;
+    width: 160px;
+    height: 160px;
+    border-radius: 50%;
+    margin-bottom: 25px;
+    padding: 4px;
+    background: linear-gradient(135deg, #ffd700, #ffae00, #b8860b, #ffd700);
+    box-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
+}
+
+.logo-wrapper::before {
+    content: '';
+    position: absolute;
+    top: -6px;
+    left: -6px;
+    right: -6px;
+    bottom: -6px;
+    border-radius: 50%;
+    background: linear-gradient(45deg, #ff0000, #ff7300, #fffb00, #48ff00, #00ffd5, #002bf7, #7a00ff, #ff00c8, #ff0000);
+    background-size: 400%;
+    z-index: -1;
+    filter: blur(12px);
+    opacity: 0.85;
+    animation: rainbowGlow 12s linear infinite;
+}
+
+@keyframes rainbowGlow {
+    0% { background-position: 0 0; }
+    50% { background-position: 400% 0; }
+    100% { background-position: 0 0; }
+}
+
+.main-logo {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+    display: block;
+}
+
+.bio h1 {
+    font-size: 1.8rem;
+    margin-bottom: 5px;
+}
+
+.bio p {
+    color: #aaa;
+    font-size: 0.95rem;
+    margin-bottom: 25px;
+}
+
+/* Iconos Sociales */
+.social-container {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-bottom: 35px;
+}
+
+.icon-btn {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    font-size: 1.3rem;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    background: rgba(255, 255, 255, 0.05);
+}
+
+.icon-btn:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-3px);
+}
+
+/* Reproductor de Música Centrado Abajo */
+.music-player {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    background: rgba(255, 255, 255, 0.08);
+    padding: 10px 20px;
+    border-radius: 30px;
+    backdrop-filter: blur(10px);
+    border: 1px solid rgba(255, 215, 0, 0.4);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.4);
+}
+
+.music-btn {
+    background: rgba(255, 255, 255, 0.15);
+    border: none;
+    color: #fff;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+    transition: all 0.3s ease;
+}
+
+.music-btn:hover {
+    background: rgba(255, 215, 0, 0.4);
+    color: #ffd700;
+    transform: scale(1.1);
+}

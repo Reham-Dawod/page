@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>REHAM DAWOD | ريهام Official </title>
+
+    <!-- Meta Tags SEO y Open Graph -->
+    <meta name="title" content="REHAM DAWOD | ريهام Official">
+    <meta name="description" content="Pagina Oficial, REHAM | ريهام . Conéctate a TikTok, Snapchat y Discord.">
+
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://reham.github.io/ ريهامOfficial/">
+    <meta property="og:title" content="REHAM DAWOD | ريهام Official">
+    <meta property="og:description" content="REHAM DAWOD | ريهام Official. Conéctate a TikTok, Snapchat y Discord.">
+    <meta property="og:image" content="https://reham.github.io/ ريهامOfficial/logo.png">
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:url" content="https://reham.github.io/ ريهامOfficial/">
+    <meta name="twitter:title" content="REHAM DAWOD | ريهام Official">
+    <meta name="twitter:description" content="REHAM DAWOD | ريهام Official. Conéctate a TikTok, Snapchat y Discord.">
+    <meta name="twitter:image" content="https://reham.github.io/ ريهامOfficial/.png">
+
+    <!-- Iconos FontAwesome y estilos locales -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <main class="container">
+        <!-- Logo con contenedor para el marco dorado y brillo arcoíris -->
+        <div class="logo-wrapper">
+            <img src="logo.png" alt="REHAM Logo" class="main-logo">
+        </div>
+
+        <!-- Descripción -->
+        <div class="bio">
+            <h1>REHAM | ريهام</h1>
+            <p>REHAM DAWOD | ريهام Official.</p>
+            <p>صانعة محتوى شخصي</p>
+        </div>
+
+        <!-- Sección de Iconos -->
+        <div class="social-container">
+            <a href="https://www.tiktok.com/@reham_dawod" class="icon-btn" target="_blank" title="TikTok"><i class="fab fa-tiktok"></i></a>
+            <a href="https://www.snapchat.com/add/@rehamosy" class="icon-btn" target="_blank" title="Snapchat"><i class="fab fa-snapchat"></i></a>
+            <a href="https://discord.gg/X3xdDkEqN" class="icon-btn" target="_blank" title="Discord"><i class="fab fa-discord"></i></a>
+       </div>
+
+        <!-- Reproductor de Audio Centrado Abajo -->
+        <audio id="bg-music"></audio>
+        <div class="music-player">
+            <button id="prev-btn" class="music-btn" title="Anterior"><i class="fas fa-step-backward"></i></button>
+            <button id="play-btn" class="music-btn" title="Reproducir/Pausar"><i class="fas fa-play"></i></button>
+            <button id="next-btn" class="music-btn" title="Siguiente"><i class="fas fa-step-forward"></i></button>
+        </div>
+    </main>
+
+    <script>
+        const playlist = [
+            "musica/cancion1.mp3",
+            "musica/cancion2.mp3",
+            "musica/cancion3.mp3",
+            "musica/cancion4.mp3",
+            "musica/cancion5.mp3",
+            "musica/cancion6.mp3",
+            "musica/cancion7.mp3",
+            "musica/cancion8.mp3",
+            "musica/cancion9.mp3",
+            "musica/cancion10.mp3",
+            "musica/cancion11.mp3",
+            "musica/cancion12.mp3",
+            "musica/cancion13.mp3",
+            "musica/cancion14.mp3",
+            "musica/cancion15.mp3",
+            "musica/cancion16.mp3",
+            "musica/cancion17.mp3",
+            "musica/cancion18.mp3",
+            "musica/cancion19.mp3",
+            "musica/cancion20.mp3",
+            "musica/cancion21.mp3",
+            "musica/cancion22.mp3",
+            "musica/cancion23.mp3",
+            "musica/cancion24.mp3",
+            "musica/cancion25.mp3",
+            "musica/cancion26.mp3",
+            "musica/cancion27.mp3",
+            "musica/cancion28.mp3",
+            "musica/cancion29.mp3",
+            "musica/cancion30.mp3"
+        ];
+
+        let currentTrack = 0;
+        const audio = document.getElementById('bg-music');
+        const playBtn = document.getElementById('play-btn');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
+
+        function loadTrack(index) {
+            audio.src = playlist[index];
+        }
+
+        function playTrack() {
+            audio.play().then(() => {
+                playBtn.innerHTML = '<i class="fas fa-pause"></i>';
+            }).catch(e => console.log("Esperando interacción del usuario"));
+        }
+
+        function pauseTrack() {
+            audio.pause();
+            playBtn.innerHTML = '<i class="fas fa-play"></i>';
+        }
+
+        loadTrack(currentTrack);
+
+        document.addEventListener('click', function startAudio() {
+            playTrack();
+            document.removeEventListener('click', startAudio);
+        }, { once: true });
+
+        playBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (audio.paused) {
+                playTrack();
+            } else {
+                pauseTrack();
+            }
+        });
+
+        nextBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            currentTrack = (currentTrack + 1) % playlist.length;
+            loadTrack(currentTrack);
+            playTrack();
+        });
+
+        prevBtn.addEventListener('click', (e) => {
+            e.stopPropagation();
+            currentTrack = (currentTrack - 1 + playlist.length) % playlist.length;
+            loadTrack(currentTrack);
+            playTrack();
+        });
+
+        audio.addEventListener('ended', () => {
+            currentTrack = (currentTrack + 1) % playlist.length;
+            loadTrack(currentTrack);
+            playTrack();
+        });
+    </script>
+</body>
+</html>

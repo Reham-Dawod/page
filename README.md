@@ -1,6 +1,6 @@
 # 🌐 Proyecto Web - Reham.Dawod-Page
 
-Bienvenido/a al repositorio **Reham-Dawod/page**. Este proyecto consiste en el desarrollo y diseño de una página web optimizada, enfocada en ofrecer una interfaz intuitiva, moderna y responsive.
+Bienvenido/a al repositorio **Reham-Dawod/page**. Este proyecto consiste en el desarrollo y diseño de una página web optimizada, enfocada en ofrecer una interfaz intuitiva, moderna y responsive sobre las redes sociales de Reham Dawod.
 
 ---
 
